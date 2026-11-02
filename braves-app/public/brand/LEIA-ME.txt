@@ -1,0 +1,2 @@
+Coloque aqui o logo oficial da Braves CT (PNG ou SVG com fundo transparente).
+Depois, em src/brand.js, preencha:  logoUrl: "/brand/nome-do-arquivo.png"
