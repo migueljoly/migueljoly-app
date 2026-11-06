@@ -424,7 +424,16 @@ a.ex-name:hover { color: var(--c); }
 
 /* ---------- login ---------- */
 .login { min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; padding: 28px 18px; position: relative; overflow: hidden; isolation: isolate; }
-.blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5; animation: float 16s ease-in-out infinite; z-index: -1; }
+.blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.38; animation: float 16s ease-in-out infinite; z-index: -1; }
+/* símbolo gigante e quase transparente no fundo (estilo "marca d'água") */
+.login-mark {
+  position: absolute; z-index: -1; left: 50%; top: 50%; translate: -50% -50%;
+  --mark-o: 0.08; width: min(118vw, 84vh, 760px); opacity: var(--mark-o); pointer-events: none;
+  animation: markIn 1.8s var(--ease) backwards, breathe 10s ease-in-out 1.8s infinite;
+}
+.login-mark svg, .login-mark img { width: 100%; height: auto; display: block; }
+@keyframes markIn { from { opacity: 0; transform: scale(1.18); } to { opacity: var(--mark-o); transform: none; } }
+@keyframes breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.035); } }
 .blob.b1 { width: 460px; height: 460px; background: var(--brand); top: -160px; right: -120px; }
 .blob.b2 { width: 380px; height: 380px; background: var(--brand-dark); bottom: -150px; left: -130px; animation-delay: -6s; }
 .blob.b3 { width: 220px; height: 220px; background: var(--gold); opacity: 0.14; top: 45%; left: 62%; animation-delay: -11s; }
@@ -435,7 +444,7 @@ a.ex-name:hover { color: var(--c); }
 }
 .login-card {
   width: 100%; max-width: 410px; text-align: center;
-  background: rgba(18, 18, 22, 0.74); backdrop-filter: blur(22px) saturate(140%); -webkit-backdrop-filter: blur(22px) saturate(140%);
+  background: rgba(14, 14, 18, 0.55); backdrop-filter: blur(5px) saturate(130%); -webkit-backdrop-filter: blur(5px) saturate(130%);
   border: 1px solid var(--border); border-radius: 26px; padding: 34px 26px 26px;
   box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   animation: pop 0.8s var(--ease) backwards;
@@ -532,6 +541,9 @@ a.ex-name:hover { color: var(--c); }
   .mini-stat { flex: 1; }
   .ex-actions { gap: 5px; }
   .login-word { font-size: 44px; }
+  .login-mark { --mark-o: 0.15; width: 138vw; }
+  .login-card { background: rgba(14, 14, 18, 0.36); }
+  .blob { opacity: 0.24; }
 }
 @media (max-width: 380px) {
   .hero-title { font-size: 50px; }

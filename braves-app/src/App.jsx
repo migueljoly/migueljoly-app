@@ -54,6 +54,7 @@ function Login({ onLogin }) {
     <div className="login">
       <div className="blob b1" /><div className="blob b2" /><div className="blob b3" />
       <div className="gridlines" />
+      <div className="login-mark" aria-hidden="true"><Emblem size={600} /></div>
       <form className={"login-card" + (shake ? " shake" : "")} onSubmit={entrar} onAnimationEnd={() => setShake(false)}>
         <div className="login-emblem"><Emblem size={78} /></div>
         <div className="login-word display">
